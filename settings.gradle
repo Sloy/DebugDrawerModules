@@ -1,1 +1,1 @@
-include ':common', ':logs', ':networkquality', ':preferences'
+include ':sample-app', ':common', ':logs', ':networkquality', ':preferences'
