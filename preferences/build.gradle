@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+  compileSdkVersion compile_sdk
+  buildToolsVersion build_tools
+
+  defaultConfig {
+    minSdkVersion min_sdk
+    targetSdkVersion compile_sdk
+  }
+}
+
+dependencies {
+  compile project(':common')
+
+  compile 'com.sloydev:preferator:1.1.0'
+  compile 'com.jakewharton:process-phoenix:1.1.1'
+}
+
+publish {
+  artifactId = 'debugdrawer-preferences'
+  desc = ''
+  userOrg = user_org
+  groupId = group_id
+  publishVersion = publish_version
+  website = website_url
+}
+
+// Hack for: https://github.com/novoda/bintray-release/issues/71
+tasks.withType(Javadoc) {
+  excludes = ['**/*.kt']
+}
