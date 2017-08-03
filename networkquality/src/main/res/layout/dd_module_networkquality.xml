@@ -24,7 +24,7 @@
     <TextView
         style="@style/Widget.DebugDrawer.Base.RowTitle"
         android:layout_gravity="start|end|center_vertical"
-        android:text="Enabled"
+        android:text="Connectivity"
         />
 
     <Switch
