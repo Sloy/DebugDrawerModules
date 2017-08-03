@@ -21,10 +21,6 @@ android {
     }
 }
 
-repositories {
-    maven { url "http://dl.bintray.com/sloy/maven" }
-}
-
 dependencies {
     debugCompile "com.sloydev:debugdrawer:$drawer_lib_version"
     releaseCompile "com.sloydev:debugdrawer-no-op:$drawer_lib_version"
