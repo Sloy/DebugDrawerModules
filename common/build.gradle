@@ -15,7 +15,7 @@ android {
 
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  compile 'io.palaima.debugdrawer:debugdrawer-base:0.7.0'
+  compile "com.sloydev:debugdrawer-base:$drawer_lib_version"
 }
 
 publish {

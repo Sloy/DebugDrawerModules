@@ -21,8 +21,13 @@ android {
     }
 }
 
+repositories {
+    maven { url "http://dl.bintray.com/sloy/maven" }
+}
+
 dependencies {
-    debugCompile 'io.palaima.debugdrawer:debugdrawer:0.7.0'
+    debugCompile "com.sloydev:debugdrawer:$drawer_lib_version"
+    releaseCompile "com.sloydev:debugdrawer-no-op:$drawer_lib_version"
 
     compile project(':preferences')
     compile project(':logs')
