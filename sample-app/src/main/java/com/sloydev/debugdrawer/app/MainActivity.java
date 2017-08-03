@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.layer.sdk.LayerClient;
+import com.sloydev.debugdrawer.layer.LayerDebugModule;
 import com.sloydev.debugdrawer.logs.LogsModule;
 import com.sloydev.debugdrawer.okhttp.NetworkQualityModule;
 import com.sloydev.debugdrawer.preferences.PreferencesModule;
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         debugDrawer = new DebugDrawer.Builder(this).modules(
                 new NetworkQualityModule(this),
                 PreferencesModule.Companion.clearAll(),
-                new LogsModule()
+                new LogsModule(),
+                new LayerDebugModule(LayerClient.newInstance(this, "layer:///apps/staging/e9da1048-b6e0-4033-a537-293e4d2c4483"))
         )//.withTheme(R.style.Theme_AppCompat)
                 .build();
 
