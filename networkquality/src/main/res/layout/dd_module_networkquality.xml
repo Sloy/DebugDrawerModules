@@ -19,12 +19,13 @@
   <GridLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:columnCount="2"
+      android:columnCount="3"
       >
+    <!-- Connectivity -->
     <TextView
         style="@style/Widget.DebugDrawer.Base.RowTitle"
         android:layout_gravity="start|end|center_vertical"
-        android:text="Connectivity"
+        android:text="Connected"
         />
 
     <Switch
@@ -35,18 +36,32 @@
         android:minHeight="26dp"
         />
 
+    <android.support.v4.widget.Space/>
+
+    <!-- Delay -->
     <TextView
         style="@style/Widget.DebugDrawer.Base.RowTitle"
         android:layout_gravity="start|center_vertical"
         android:text="Delay"
         />
 
-    <Spinner
+    <TextView
+        android:id="@+id/debug_network_delay_indicator"
         style="@style/Widget.DebugDrawer.Base.RowValue"
-        android:id="@+id/debug_network_delay"
-        android:layout_width="0dp"
-        android:layout_gravity="start|center_vertical|fill_horizontal"
+        android:layout_width="@dimen/value_indicator_width"
+        android:layout_gravity="center_vertical|clip_horizontal"
+        android:gravity="end|center_vertical"
+        android:text="0 s"
+        tools:text="0.5 s"
         />
+
+    <SeekBar
+        android:id="@+id/debug_network_delay"
+        style="@style/Widget.DebugDrawer.Base.RowValue"
+        android:layout_gravity="end|fill_horizontal"
+        />
+
+    <!-- Error -->
 
     <TextView
         style="@style/Widget.DebugDrawer.Base.RowTitle"
@@ -54,11 +69,21 @@
         android:text="Error"
         />
 
-    <Spinner
+    <TextView
+        android:id="@+id/debug_network_error_indicator"
         style="@style/Widget.DebugDrawer.Base.RowValue"
+        android:layout_width="@dimen/value_indicator_width"
+        android:layout_gravity="end|center_vertical"
+        android:gravity="end|center_vertical"
+        android:text="0 %"
+        tools:text="100 %"
+        />
+
+    <SeekBar
         android:id="@+id/debug_network_error"
-        android:layout_width="0dp"
-        android:layout_gravity="start|center_vertical|fill_horizontal"
+        style="@style/Widget.DebugDrawer.Base.RowValue"
+        android:layout_gravity="end|fill_horizontal"
+        tools:progress="70"
         />
   </GridLayout>
 </LinearLayout>
