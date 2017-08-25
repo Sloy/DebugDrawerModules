@@ -76,7 +76,7 @@ class NetworkQualityModule(context: Context) : DebugModuleAdapter() {
     override fun onResume() {
         enabledSwitch.isChecked = networkQualityConfig.networkEnabled
         delaySeekBar.progress = DELAY_VALUES.indexOf(networkQualityConfig.delayMs.ms)
-        delaySeekBar.progress = DELAY_VALUES.indexOf(networkQualityConfig.delayMs.ms)
+        errorSeekBar.progress = ERROR_VALUES.indexOf(networkQualityConfig.errorPercentage.pct)
     }
 
 }
