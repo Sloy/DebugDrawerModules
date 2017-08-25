@@ -41,6 +41,7 @@ class NetworkQualityModule(context: Context) : DebugModuleAdapter() {
 
     private fun setupEnabledSwitch(moduleView: View) {
         enabledSwitch = moduleView.findViewById<Switch>(R.id.dd_module_networkquality_enabled)
+        enabledSwitch.isSaveEnabled = false
         enabledSwitch.setOnCheckedChangeListener { _, isChecked ->
             networkQualityConfig.networkEnabled = isChecked
             delaySeekBar.isEnabled = isChecked
@@ -51,6 +52,7 @@ class NetworkQualityModule(context: Context) : DebugModuleAdapter() {
     private fun setupDelaySeekBar(moduleView: View) {
         val delayIndicator = moduleView.findViewById<TextView>(R.id.debug_network_delay_indicator)
         delaySeekBar = moduleView.findViewById<SeekBar>(R.id.debug_network_delay)
+        delaySeekBar.isSaveEnabled = false
         delaySeekBar.preventDrawerTouch()
         delaySeekBar.max = DELAY_VALUES.size - 1
         delaySeekBar.onChanged { position ->
@@ -63,6 +65,7 @@ class NetworkQualityModule(context: Context) : DebugModuleAdapter() {
     private fun setupErrorSeekBar(moduleView: View) {
         val errorIndicator = moduleView.findViewById<TextView>(R.id.debug_network_error_indicator)
         errorSeekBar = moduleView.findViewById<SeekBar>(R.id.debug_network_error)
+        errorSeekBar.isSaveEnabled = false
         errorSeekBar.preventDrawerTouch()
         errorSeekBar.max = ERROR_VALUES.size - 1
         errorSeekBar.onChanged { position ->
