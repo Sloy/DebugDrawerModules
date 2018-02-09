@@ -1,1 +1,1 @@
-include ':sample-app', ':common', ':logs', ':networkquality', ':preferences', ':layer'
+include ':sample-app', ':common', ':logs', ':preferences', ':layer'

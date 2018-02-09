@@ -27,15 +27,14 @@ repositories {
 
 
 dependencies {
-    debugCompile "com.sloydev:debugdrawer:$drawer_lib_version"
-    releaseCompile "com.sloydev:debugdrawer-no-op:$drawer_lib_version"
+    debugCompile "io.palaima.debugdrawer:debugdrawer:$drawer_lib_version"
+    releaseCompile "io.palaima.debugdrawer:debugdrawer-no-op:$drawer_lib_version"
 
     compile project(':preferences')
     compile project(':logs')
-    compile project(':networkquality')
     compile project(':layer')
 
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.layer.sdk:layer-sdk:0.23.13'

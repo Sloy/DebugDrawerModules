@@ -1,6 +1,5 @@
 package com.sloydev.debugdrawer.app;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,15 +7,9 @@ import android.support.v7.widget.Toolbar;
 import com.layer.sdk.LayerClient;
 import com.sloydev.debugdrawer.layer.LayerDebugModule;
 import com.sloydev.debugdrawer.logs.LogsModule;
-import com.sloydev.debugdrawer.okhttp.NetworkQualityModule;
 import com.sloydev.debugdrawer.preferences.PreferencesModule;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
 import io.palaima.debugdrawer.view.DebugView;
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
 
 public class DebugViewActivity extends AppCompatActivity {
 
@@ -31,10 +24,9 @@ public class DebugViewActivity extends AppCompatActivity {
         setupToolBar();
 
 
-        debugView = (DebugView) findViewById(R.id.debug_view);
+        debugView = findViewById(R.id.debug_view);
 
         debugView.modules(
-                new NetworkQualityModule(this),
                 PreferencesModule.Companion.clearAll(),
                 new LogsModule(),
                 new LayerDebugModule(LayerClient.newInstance(this, "layer:///apps/staging/e9da1048-b6e0-4033-a537-293e4d2c4483"))
@@ -67,24 +59,12 @@ public class DebugViewActivity extends AppCompatActivity {
     }
 
     protected Toolbar setupToolBar() {
-        toolbar = (Toolbar) findViewById(R.id.mainToolbar);
+        toolbar = findViewById(R.id.mainToolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
         return toolbar;
     }
 
-    private static final int DISK_CACHE_SIZE = 20 * 1024 * 1024; // 20 MB
 
-    private static OkHttpClient.Builder createOkHttpClientBuilder(Application app) {
-        // Install an HTTP cache in the application cache directory.
-        File cacheDir = new File(app.getCacheDir(), "okhttp3");
-        Cache cache = new Cache(cacheDir, DISK_CACHE_SIZE);
-
-        return new OkHttpClient.Builder()
-                .cache(cache)
-                .readTimeout(10, TimeUnit.SECONDS)
-                .writeTimeout(10, TimeUnit.SECONDS)
-                .connectTimeout(10, TimeUnit.SECONDS);
-    }
 }
